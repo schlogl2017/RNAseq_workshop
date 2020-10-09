@@ -1,0 +1,17 @@
+##############################
+# RNAseq workshop
+ 
+NAME: 
+ 
+1) Bedtools, in this context did not take into account sequence duplication, whereas Salmon does. How many of the DE gene were common between the analysis?
+
+2) Usign the Salmon counts: How many of the DE genes were common between the EdgeR and DESEQ2 analysis?
+
+3) Difference bewteen 2 reps and 3 reps exact test 
+
+ 
+10) Write a short half a page feedback on the workshop and what you have learnt.
+
+Create one document with your answers and upload it on MMS. Deadline is the 13th October 2020 17:00 BST
+
+
