@@ -1,0 +1,2 @@
+cd $HOME
+/shelf/apps/pjt6/apps/STAR-master/bin/Linux_x86_64_static/STAR --genomeDir star_indicies/ --limitGenomeGenerateRAM 455554136874 --limitBAMsortRAM 455554136874 --runThreadN 16 --readFilesCommand zcat --outSAMtype BAM SortedByCoordinate --outFilterMismatchNmax 7  --outFilterMultimapNmax 5 --outFileNamePrefix DARKTELLEFT_1 --readFilesIn /storage/home/users/jw279/data/chickendata/thrid/WTCHG_328669_209_paired_R1.fq.gz /storage/home/users/jw279/data/chickendata/thrid/WTCHG_328669_209_paired_R2.fq.gz 
