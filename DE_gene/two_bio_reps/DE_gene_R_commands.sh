@@ -12,7 +12,7 @@ library("edgeR")
 
 # set the working directory to where you want:
 # in Rstudio you can do this easily with File, new project
-setwd("/Users/pjt6/Documents/RNAseq_workshop/DE_gene")
+setwd("/Users/pjt6/Documents/RNAseq_workshop/DE_gene/two_bio_reps")
 
 # check it
 getwd()
@@ -21,10 +21,10 @@ getwd()
 dir()
 
 # load in the data
-data <- read.delim("Mc_cherry_galium_bedtools.genes.counts.matrix", header=T, row.names=1)
+data <- read.delim("TableOfCounts.txt", header=T, row.names=1)
 
 # group the replicas
-group <- factor(c(1,1,1,2,2,2))
+group <- factor(c(1,1,2,2))
 
 # store the data in a list-based object.
 rnaseqMatrix <- DGEList(counts=data,group=group)
@@ -32,7 +32,7 @@ rnaseqMatrix <- DGEList(counts=data,group=group)
 # have a little look at the data 
 head(rnaseqMatrix)
 
-# filter very low expression genes as these do not contribute and negatively afffect the stats
+# filter very low expression genes as these do not contribute and negatively affect the stats
 keep <- filterByExpr(rnaseqMatrix)
 
 rnaseqMatrix <- rnaseqMatrix[keep,,keep.lib.sizes=FALSE]
@@ -41,6 +41,7 @@ rnaseqMatrix <- rnaseqMatrix[keep,,keep.lib.sizes=FALSE]
 # this minimised the log fold change between samples for most genes
 # Note this is not FRPM or TPM normalisation, raw values need to be given to EdgeR, as these are
 # needed to estimate the mean-variance relationship between the samples
+
 rnaseqMatrix <- calcNormFactors(rnaseqMatrix)
 
 # write a table of the lib size and normalisation factors. Look at how these are different. 
@@ -53,6 +54,7 @@ rnaseqMatrix$samples
 # group are your samples
 design <- model.matrix(~group)
 
+# you can think of this as like the estimateDispersions is the DE exon part of this class
 rnaseqMatrix <- estimateDisp(rnaseqMatrix,design)
 
 # To perform quasi-likelihood F-tests: (better for low numbers of reps)
@@ -72,9 +74,9 @@ lrt <- glmLRT(fit,coef=2)
 
 topTags(lrt)
 
-#### classicL EDGR
+#### classicL EDGR  ### uses exact test for the stats
 
-conditions = factor(c(rep("cherry", 3), rep("gallium", 3)))
+conditions = factor(c(rep("cherry", 2), rep("gallium", 2)))
 
 exp_study = DGEList(counts=rnaseqMatrix, group=conditions)
 
@@ -164,7 +166,7 @@ for (i in 1:nsamples) {
 # load in the heat map function
 
 
-primary_data = read.table("Mc_cherry_galium_bedtools.genes.counts.matrix", header=T, com='', sep="\t", row.names=1, check.names=F)
+primary_data = read.table("TableOfCounts.txt", header=T, com='', sep="\t", row.names=1, check.names=F)
 primary_data = as.matrix(primary_data)
 initial_matrix = as.matrix(primary_data)
 

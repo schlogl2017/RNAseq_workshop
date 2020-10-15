@@ -5,7 +5,7 @@ NAME:
  
 1) Bedtools, in this context did not take into account sequence duplication, whereas Salmon does. How many of the DE gene were common between the analysis?
 
-2) Usign the Salmon counts: How many of the DE genes were common between the EdgeR and DESEQ2 analysis?
+2) 
 
 3) Difference bewteen 2 reps and 3 reps exact test 
 
@@ -13,5 +13,23 @@ NAME:
 10) Write a short half a page feedback on the workshop and what you have learnt.
 
 Create one document with your answers and upload it on MMS. Deadline is the 13th October 2020 17:00 BST
+
+###############################################################################################
+Extra task 1): For those of you who wanted a coding challenge (THIS IS NOT ASSESSED OR MARKED - but help can
+be given if you want it. Submit your code at the end of the file):
+
+The DE exon results had the original names chaged, however, they were changed in a logical manner. 
+For example, geneID: 22307 can through as having significantly changed DE exons in the analsis. 
+Its original name was Mca22307. Another example is geneID: 756, original name Mca00756.
+
+Thus all the original names start with Mca and are 5 numerical character. One more example to get that point across
+geneID 1, would have originally been called Mca00001.
+
+Can you write a script to convert all the gene IDs that came through the DE exon analysis to the original names?
+
+Extra task 2): Write a script that compare this newly named DE exon list, to that of the DE gene lists for 2 and 3 reps?
+How many genes are common between the DE exon set and DE gene set (2 and 3 reps). 
+
+Extra task 3): 
 
 
