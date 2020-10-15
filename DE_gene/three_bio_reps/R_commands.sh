@@ -21,7 +21,7 @@ getwd()
 dir()
 
 # load in the data
-data <- read.delim("Mc_cherry_galium_bedtools.genes.counts.matrix", header=T, row.names=1)
+data <- read.delim("Mcerasi.genes.counts.matrix", header=T, row.names=1)
 
 # group the replicas
 group <- factor(c(1,1,1,2,2,2))
@@ -164,7 +164,7 @@ for (i in 1:nsamples) {
 # load in the heat map function
 
 
-primary_data = read.table("Mc_cherry_galium_bedtools.genes.counts.matrix", header=T, com='', sep="\t", row.names=1, check.names=F)
+primary_data = read.table("Mcerasi.genes.counts.matrix", header=T, com='', sep="\t", row.names=1, check.names=F)
 primary_data = as.matrix(primary_data)
 initial_matrix = as.matrix(primary_data)
 
